@@ -1,1 +1,25 @@
 services:
+
+  # Datadog Agent
+  datadog-agent:
+    build:
+      context: .
+      dockerfile: .infrastructure/dd-agent/Dockerfile.dev
+    container_name: datadog-agent-${CONTAINER_NAME_SUFFIX}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /proc/:/host/proc/:ro
+      - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
+    environment:
+      - DD_SITE=${DD_SITE}
+      - DD_API_KEY=${DD_API_KEY}
+      - DD_DOGSTATSD_NON_LOCAL_TRAFFIC=1
+    env_file:
+      - .env
+    ports:
+      - ${CONTAINER_IP}:${DATADOG_AGENT_PORTS}:8125/udp
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 500m

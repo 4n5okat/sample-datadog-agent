@@ -1,12 +1,12 @@
-# コンテナテンプレート
+# Datadog Agentのサンプルリポジトリ
 
 ## 概要
 
-コンテナテンプレートリポジトリ
+Datadog Agentのコンテナのサンプルリポジトリ
 
 ## 目次
 
-- [コンテナテンプレート](#コンテナテンプレート)
+- [Datadog Agentのサンプルリポジトリ](#datadog-agentのサンプルリポジトリ)
   - [概要](#概要)
   - [目次](#目次)
   - [共通事項](#共通事項)
@@ -37,12 +37,11 @@
 │   ├── README.scoop-package.md
 │   └── README.scoop.md
 ├── infrastructure/
-│   └── service_name(compose.ymlのサービスごとのディレクトリ)/
+│   └── datadog-agent/
 │       └── Dockerfile
 ├── .dockerignore
 ├── .env.example
 ├── .gitignore
-├── API.rest(REST Client)
 ├── compose.yml
 ├── Makefile
 └── README.md
